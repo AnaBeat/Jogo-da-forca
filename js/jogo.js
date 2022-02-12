@@ -1,14 +1,14 @@
 // Variáveis
 palavras = ['macaco', 'tartaruga', 'caracol', 'hiena', 'livro',
 'correio', 'mochila', 'cebola', 'framboesa', 'queijo', 'chave', 'relogio'];
-palavraSorteada = '';
+palavraSecreta = '';
 erros = 0;
 acertos = 0;
 letrasCertas = [];
 letrasErradas = [];
-letrasDigitadas = [];
+letraDigitada = [];
 letraQtde = 0;
-
+const regex = new RegExp("^[a-z \b]+$");
 
 // Funções
 function sorteiaPalavra() {
@@ -16,31 +16,37 @@ function sorteiaPalavra() {
   sorteio = Math.floor(Math.random() * qtdPalavras);
   palavraSecreta = palavras[sorteio];
 
-  console.log(palavraSecreta);
-
   return palavraSecreta;
-
-
 }
 
-var botaoIniciar = document.querySelector('#iniciar');
-botaoIniciar.addEventListener('click', function(){
-  event.preventDefault();
-  var div = document.querySelector("#canvas");
+//verifica se é letra
+document.addEventListener('keypress', function(event) {
 
-  if(div.style.display === "none") {
-        div.style.display = "block";
-    } else {
-      div.style.display = "none";
-  }
-  letrasCertas = [];
-  letrasErradas = [];
-  acertos = 0;
-  erros = 0;
-  letrasDigitadas = [];
-  palavraSorteada = sorteiaPalavra();
-  desenhaTela();
-  desenhaLinhas(palavraSorteada);
-  //desenhaForca();
-  return palavraSorteada;
+  if (!regex.test(event.key)) {
+
+        console.log('apenas letras');
+    }else {
+
+        verificaLetra(event.key);
+    }
+
 })
+
+
+function verificaLetra(letra) {
+  var letraTemp = palavraSecreta.split('');
+  letraTempQtd = letraTemp.length;
+  if (letrasCertas.includes(letra) == false && letrasErradas.includes(letra) == false) {
+    if (letraTemp.includes(letra) == true) {
+      for (var i = 0; i < letraTempQtd; i++) {
+        if (letraTemp[i] == letra) {
+          escreverLetraCerta(letra,i+1);
+          letrasCertas.push(letra);
+          acertos = acertos+1;
+        }
+      }
+
+    }
+  }
+
+}
