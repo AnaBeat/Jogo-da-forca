@@ -46,7 +46,13 @@ function verificaLetra(letra) {
         }
       }
 
+    }else {
+      escreverLetraErrada(letra, 15);
+      letrasErradas.push(letra);
+      erros = erros+1;
     }
+  }else {
+    alert('Você já digitou essa letra!')
   }
 
 }
