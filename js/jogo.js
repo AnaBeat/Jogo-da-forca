@@ -1,3 +1,4 @@
+
 // Variáveis
 palavras = ['macaco', 'tartaruga', 'caracol', 'hiena', 'livro',
 'correio', 'mochila', 'cebola', 'framboesa', 'queijo', 'chave', 'relogio'];
@@ -7,7 +8,7 @@ acertos = 0;
 letrasCertas = [];
 letrasErradas = [];
 letraDigitada = [];
-letraQtde = 0;
+letraTempQtd = 0;
 const regex = new RegExp("^[a-z \b]+$");
 
 // Funções
@@ -18,6 +19,7 @@ function sorteiaPalavra() {
 
   return palavraSecreta;
 }
+
 
 //verifica se é letra
 document.addEventListener('keypress', function(event) {
@@ -43,6 +45,7 @@ function verificaLetra(letra) {
           escreverLetraCerta(letra,i+1);
           letrasCertas.push(letra);
           acertos = acertos+1;
+          verificaFim();
         }
       }
 
@@ -50,9 +53,36 @@ function verificaLetra(letra) {
       escreverLetraErrada(letra, 15);
       letrasErradas.push(letra);
       erros = erros+1;
+      verificaFim();
     }
   }else {
     alert('Você já digitou essa letra!')
   }
 
+}
+
+
+function verificaFim() {
+  if (erros == 1) {
+    desenhaCabeca();
+  }
+  if (erros == 2) {
+    desenhaTronco();
+  }
+  if (erros == 3) {
+    desenhaBracoEsq();
+  }
+  if (erros == 4) {
+    desenhaBracoDir();
+  }
+  if (erros == 5) {
+    desenhaPernaEsq();
+  }
+  if (erros == 6) {
+    desenhaPernaDir();
+    escrevePerdeu();
+  }
+  if (acertos >= letraTempQtd) {
+    escreverGanhou();
+  }
 }

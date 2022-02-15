@@ -27,9 +27,14 @@ function desenhaTela() {
 
 function desenhaForca() {
   pincel.fillStyle = 'black';
+  //linha maior
   pincel.fillRect(80, 100, 10, 400);
+
+  //linha meio
   pincel.fillRect(80, 100, 250, 10);
-  pincel.fillRect(330, 100, 10, 100);
+
+  // linha menor
+  pincel.fillRect(330, 100, 10, 50);
 }
 
 function desenhaLinhas() {
@@ -64,20 +69,146 @@ function escreverLetraCerta(letra, pos) {
     if (pos > 1) {
 
         pincel.fillText(letra, 62*pos+n, 500);
+        pincel.closePath();
     }else {
         pincel.fillText(letra, 110*pos, 500);
+        pincel.closePath();
     }
     n += 40;
-    pincel.closePath();
+    //pincel.closePath();
 }
 
 function escreverLetraErrada(letra, pos) {
+
   pincel.font = '30px Pangolin';
-  pincel.fillStyle = '#000000';
+
   pincel.fillText('Letras erradas', 500, 80);
   var qtdErradas = letrasErradas.length;
   pincel.strokeText(letra, 500+(qtdErradas*32), 120);
+}
+
+function desenhaCabeca() {
+  pincel.lineWidth = 4;
+  pincel.beginPath();
+  pincel.arc(335, 180, 30, 0, 2 * Math.PI);
+  pincel.fillStyle = '#fff';
+  pincel.strokeStyle = '#F50b26';
+  pincel.stroke();
+  pincel.fill();
+  pincel.closePath();
+  pincel.lineWidth = 1;
+  pincel.fillStyle = 'black';
+  pincel.strokeStyle = 'black';
+
+}
+
+function desenhaTronco() {
+  pincel.lineWidth = 2;
+  pincel.beginPath();
+  pincel.moveTo(335, 210);
+  pincel.lineTo(335, 330);
+  pincel.fillStyle = '#D885A3';
+   pincel.strokeStyle = '#F50b26';
+   pincel.fill();
+   pincel.stroke();
+   pincel.closePath();
+   pincel.lineWidth = 1;
+   pincel.fillStyle = 'black';
+   pincel.strokeStyle = 'black';
+}
+
+function desenhaBracoEsq() {
+  pincel.lineWidth = 2;
+  pincel.beginPath();
+  pincel.moveTo(335, 230);
+  pincel.lineTo(280, 270);
+  pincel.fillStyle = '#D885A3';
+   pincel.strokeStyle = '#F50b26';
+   pincel.fill();
+   pincel.stroke();
+   pincel.closePath();
+   pincel.lineWidth = 1;
+   pincel.fillStyle = 'black';
+   pincel.strokeStyle = 'black';
+}
+
+function desenhaBracoDir() {
+  pincel.lineWidth = 2;
+  pincel.beginPath();
+  pincel.moveTo(335, 230);
+  pincel.lineTo(400, 270);
+  pincel.fillStyle = '#D885A3';
+   pincel.strokeStyle = '#F50b26';
+   pincel.fill();
+   pincel.stroke();
+   pincel.closePath();
+   pincel.lineWidth = 1;
+   pincel.fillStyle = 'black';
+   pincel.strokeStyle = 'black';
+}
+
+
+function desenhaPernaEsq() {
+  pincel.lineWidth = 2;
+  pincel.beginPath();
+  pincel.moveTo(335, 330);
+  pincel.lineTo(280, 370);
+  pincel.fillStyle = '#D885A3';
+   pincel.strokeStyle = '#F50b26';
+   pincel.fill();
+   pincel.stroke();
+   pincel.closePath();
+   pincel.lineWidth = 1;
+   pincel.fillStyle = 'black';
+   pincel.strokeStyle = 'black';
+}
+
+function desenhaPernaDir() {
+  pincel.lineWidth = 2;
+  pincel.beginPath();
+  pincel.moveTo(335, 330);
+  pincel.lineTo(400, 370);
+  pincel.fillStyle = '#D885A3';
+   pincel.strokeStyle = '#F50b26';
+   pincel.fill();
+   pincel.stroke();
+   pincel.closePath();
+   pincel.lineWidth = 1;
+   pincel.fillStyle = 'black';
+   pincel.strokeStyle = 'black';
+}
+
+function escrevePerdeu() {
+
+    pincel.beginPath();
+    pincel.font = '25px Pangolin';
+    pincel.fillStyle = '#F50b26';
+    pincel.fillText('Você perdeu!', 280, 550);
+    pincel.fillText("A palavra era " + palavraSecreta, 280 ,580);
+    pincel.closePath();
+
+    setTimeout(function keypresed() {
+
+
+      document.onkeydown=keypresed;
+
+      window.location.reload(1);
+    }, 1500);
+
+}
+
+function escreverGanhou() {
+  pincel.beginPath();
+  pincel.font = '48px Pangolin';
+  pincel.fillStyle = '#3fd447';
+  pincel.fillText('Você Ganhou!', 280, 550);
   pincel.closePath();
 
+  setTimeout(function keypresed() {
 
+
+    document.onkeydown=keypresed;
+
+    window.location.reload(1);
+  }, 1500);
 }
