@@ -180,7 +180,7 @@ function escrevePerdeu() {
     pincel.beginPath();
     pincel.font = '25px Pangolin';
     pincel.fillStyle = '#F50b26';
-    pincel.fillText('Você perdeu!', 280, 550);
+    pincel.fillText('Fim de Jogo', 280, 550);
     pincel.fillText("A palavra era " + palavraSecreta, 280 ,580);
     pincel.closePath();
     document.removeEventListener('keypress', validaLetra);
@@ -191,7 +191,7 @@ function escreverGanhou() {
   pincel.beginPath();
   pincel.font = '48px Pangolin';
   pincel.fillStyle = '#3fd447';
-  pincel.fillText('Você Ganhou!', 280, 550);
+  pincel.fillText('Você Venceu. Parabéns!', 200, 580);
   pincel.closePath();
   document.removeEventListener('keypress', validaLetra);
 }
