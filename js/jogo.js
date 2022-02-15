@@ -1,7 +1,8 @@
 
 // Variáveis
-palavras = ['macaco', 'tartaruga', 'caracol', 'hiena', 'livro',
-'correio', 'mochila', 'cebola', 'framboesa', 'queijo', 'chave', 'relogio'];
+palavras = ['macaco', 'tartaruga', 'caracol', 'hiena', 'elefante',
+'livro', 'chave', 'relogio', 'mochila', 'espelho',
+'cebola', 'framboesa', 'queijo', 'banana', 'arroz'];
 palavraSecreta = '';
 erros = 0;
 acertos = 0;
@@ -11,7 +12,31 @@ letraDigitada = [];
 letraTempQtd = 0;
 const regex = new RegExp("^[a-z \b]+$");
 
-// Funções
+var botaoJogar = document.querySelector("#inicia-jogo");
+botaoJogar.addEventListener("click", iniciaJogo);
+
+
+
+
+function iniciaJogo() {
+  desenhaTela();
+  document.addEventListener('keypress', validaLetra);
+}
+
+
+function validaLetra(event) {
+
+
+  if (!regex.test(event.key)) {
+
+        alert('Apenas letras');
+    }else {
+      var letra = event.key;
+
+        verificaLetra(letra);
+    }
+}
+
 function sorteiaPalavra() {
   qtdPalavras = palavras.length;
   sorteio = Math.floor(Math.random() * qtdPalavras);
@@ -19,20 +44,6 @@ function sorteiaPalavra() {
 
   return palavraSecreta;
 }
-
-
-//verifica se é letra
-document.addEventListener('keypress', function(event) {
-
-  if (!regex.test(event.key)) {
-
-        console.log('apenas letras');
-    }else {
-
-        verificaLetra(event.key);
-    }
-
-})
 
 
 function verificaLetra(letra) {
@@ -81,8 +92,12 @@ function verificaFim() {
   if (erros == 6) {
     desenhaPernaDir();
     escrevePerdeu();
+    document.removeEventListener('keypress', validaLetra);
+
   }
   if (acertos >= letraTempQtd) {
     escreverGanhou();
+    document.removeEventListener('keypress', validaLetra);
+
   }
 }

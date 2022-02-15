@@ -8,8 +8,6 @@ var tela = document.querySelector('#forca');
 var pincel = tela.getContext('2d');
 
 
-desenhaTela();
-
 function desenhaTela() {
   myFont.load().then((font) => {
   document.fonts.add(font);
@@ -19,9 +17,10 @@ function desenhaTela() {
   pincel.fillStyle = 'white';
   pincel.fillRect(0, 0, 800, 600);
 
-
   desenhaForca();
   desenhaLinhas();
+
+  console.log(palavras);
 }
 
 
@@ -60,30 +59,7 @@ function desenhaLinhas() {
 
 }
 
-function escreverLetraCerta(letra, pos) {
-  n=40;
 
-    pincel.font = '48px Pangolin';
-
-    if (pos > 1) {
-
-        pincel.fillText(letra, 62*pos+n, 500);
-        pincel.closePath();
-    }else {
-        pincel.fillText(letra, 110*pos, 500);
-        pincel.closePath();
-    }
-    n += 40;
-}
-
-function escreverLetraErrada(letra, pos) {
-
-  pincel.font = '30px Pangolin';
-
-  pincel.fillText('Letras erradas', 500, 80);
-  var qtdErradas = letrasErradas.length;
-  pincel.strokeText(letra, 500+(qtdErradas*32), 120);
-}
 
 function desenhaCabeca() {
   pincel.lineWidth = 4;
@@ -176,6 +152,31 @@ function desenhaPernaDir() {
    pincel.strokeStyle = 'black';
 }
 
+function escreverLetraCerta(letra, pos) {
+  n=40;
+
+    pincel.font = '48px Pangolin';
+
+    if (pos > 1) {
+
+        pincel.fillText(letra, 62*pos+n, 500);
+        pincel.closePath();
+    }else {
+        pincel.fillText(letra, 110*pos, 500);
+        pincel.closePath();
+    }
+    n += 40;
+}
+
+function escreverLetraErrada(letra, pos) {
+
+  pincel.font = '30px Pangolin';
+
+  pincel.fillText('Letras erradas', 500, 80);
+  var qtdErradas = letrasErradas.length;
+  pincel.strokeText(letra, 500+(qtdErradas*32), 120);
+}
+
 function escrevePerdeu() {
 
     pincel.beginPath();
@@ -185,14 +186,6 @@ function escrevePerdeu() {
     pincel.fillText("A palavra era " + palavraSecreta, 280 ,580);
     pincel.closePath();
 
-    setTimeout(function keypresed() {
-
-
-      document.onkeydown=keypresed;
-
-      window.location.reload(1);
-    }, 1500);
-
 }
 
 function escreverGanhou() {
@@ -201,12 +194,4 @@ function escreverGanhou() {
   pincel.fillStyle = '#3fd447';
   pincel.fillText('Você Ganhou!', 280, 550);
   pincel.closePath();
-
-  setTimeout(function keypresed() {
-
-
-    document.onkeydown=keypresed;
-
-    window.location.reload(1);
-  }, 1500);
 }

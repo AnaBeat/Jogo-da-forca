@@ -56,3 +56,9 @@ body {
     color: #FDCEB9;
     font-size: 20px;
 }
+
+.input-text{
+  border-radius: 9px;
+	border: 1px solid #FDCEB9;
+  width: 100%;
+}
