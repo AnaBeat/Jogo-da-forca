@@ -58,7 +58,6 @@ function desenhaLinhas() {
     pincel.stroke();
   }
 
-  console.log(palavraSecreta);
 }
 
 function escreverLetraCerta(letra, pos) {
@@ -75,7 +74,6 @@ function escreverLetraCerta(letra, pos) {
         pincel.closePath();
     }
     n += 40;
-    //pincel.closePath();
 }
 
 function escreverLetraErrada(letra, pos) {
