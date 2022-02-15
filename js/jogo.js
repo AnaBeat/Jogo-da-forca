@@ -3,6 +3,7 @@
 palavras = ['macaco', 'tartaruga', 'caracol', 'hiena', 'elefante',
 'livro', 'chave', 'relogio', 'mochila', 'espelho',
 'cebola', 'framboesa', 'queijo', 'banana', 'arroz'];
+
 palavraSecreta = '';
 erros = 0;
 acertos = 0;
@@ -14,8 +15,6 @@ const regex = new RegExp("^[a-z \b]+$");
 
 var botaoJogar = document.querySelector("#inicia-jogo");
 botaoJogar.addEventListener("click", iniciaJogo);
-
-
 
 
 function iniciaJogo() {
@@ -92,12 +91,10 @@ function verificaFim() {
   if (erros == 6) {
     desenhaPernaDir();
     escrevePerdeu();
-    document.removeEventListener('keypress', validaLetra);
 
   }
   if (acertos >= letraTempQtd) {
     escreverGanhou();
-    document.removeEventListener('keypress', validaLetra);
 
   }
 }

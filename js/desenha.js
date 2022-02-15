@@ -20,7 +20,8 @@ function desenhaTela() {
   desenhaForca();
   desenhaLinhas();
 
-  console.log(palavras);
+  console.log(palavraSecreta);
+
 }
 
 
@@ -185,6 +186,7 @@ function escrevePerdeu() {
     pincel.fillText('Você perdeu!', 280, 550);
     pincel.fillText("A palavra era " + palavraSecreta, 280 ,580);
     pincel.closePath();
+    document.removeEventListener('keypress', validaLetra);
 
 }
 
@@ -194,4 +196,5 @@ function escreverGanhou() {
   pincel.fillStyle = '#3fd447';
   pincel.fillText('Você Ganhou!', 280, 550);
   pincel.closePath();
+  document.removeEventListener('keypress', validaLetra);
 }
