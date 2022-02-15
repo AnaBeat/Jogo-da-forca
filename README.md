@@ -22,4 +22,5 @@
 
 ### Resultado final
 
-![imagem](https://github.com/AnaBeat/)
+![imagem](https://github.com/AnaBeat/Jogo-da-forca/blob/master/img/tela-1.jpg)
+![imagem](https://github.com/AnaBeat/Jogo-da-forca/blob/master/img/tela-2.jpg)

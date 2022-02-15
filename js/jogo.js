@@ -41,6 +41,11 @@ botaoDica.addEventListener('click', function(){
 function iniciaJogo() {
   desenhaTela();
   document.addEventListener('keypress', validaLetra);
+  erros = 0;
+  acertos = 0;
+  letrasCertas = [];
+  letrasErradas = [];
+  letraTempQtd = 0;
 
 }
 
