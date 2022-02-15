@@ -1,25 +1,47 @@
 
 // Variáveis
-palavras = ['macaco', 'tartaruga', 'caracol', 'hiena', 'elefante',
-'livro', 'chave', 'relogio', 'mochila', 'espelho',
-'cebola', 'framboesa', 'queijo', 'banana', 'arroz'];
+palavras = [
+'macaco', 'tartaruga', 'caracol', 'hiena', 'elefante', 'gato', 'bode',
+'livro', 'chave', 'relogio', 'mochila', 'espelho', 'janela', 'tesoura',
+'cebola', 'framboesa', 'queijo', 'banana', 'arroz', 'biscoito', 'lasanha'];
+
+var animais = palavras.slice(0, 7);
+var objetos = palavras.slice(7, 14);
+var alimentos = palavras.slice(14, 21);
 
 palavraSecreta = '';
 erros = 0;
 acertos = 0;
 letrasCertas = [];
 letrasErradas = [];
-letraDigitada = [];
 letraTempQtd = 0;
 const regex = new RegExp("^[a-z \b]+$");
 
-var botaoJogar = document.querySelector("#inicia-jogo");
-botaoJogar.addEventListener("click", iniciaJogo);
+var botaoJogar = document.querySelector('#inicia-jogo');
+botaoJogar.addEventListener('click', iniciaJogo);
+
+var botaoDica = document.querySelector('#dica');
+botaoDica.addEventListener('click', function(){
+
+  if (animais.indexOf(palavraSecreta) > -1) {
+    alert('é um animal');
+  }
+
+  if (objetos.indexOf(palavraSecreta) > -1) {
+    alert('é um objeto');
+  }
+
+  if (alimentos.indexOf(palavraSecreta) > -1) {
+    alert('é um alimento');
+  }
+
+})
 
 
 function iniciaJogo() {
   desenhaTela();
   document.addEventListener('keypress', validaLetra);
+
 }
 
 
