@@ -19,9 +19,6 @@ function desenhaTela() {
 
   desenhaForca();
   desenhaLinhas();
-
-  console.log(palavraSecreta);
-
 }
 
 
