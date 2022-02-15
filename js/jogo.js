@@ -1,9 +1,9 @@
 
 // Variáveis
 palavras = [
-'macaco', 'tartaruga', 'caracol', 'hiena', 'elefante', 'gato', 'bode',
-'livro', 'chave', 'relogio', 'mochila', 'espelho', 'janela', 'tesoura',
-'cebola', 'framboesa', 'queijo', 'banana', 'arroz', 'biscoito', 'lasanha'];
+'MACACO', 'TARTARUGA', 'CARACOL', 'HIENA', 'ELEFANTE', 'GATO', 'BODE',
+'LIVRO', 'CHAVE', 'RELOGIO', 'MOCHILA', 'ESPELHO', 'JANELA', 'TESOURA',
+'CEBOLA', 'FRAMBOESA', 'QUEIJO', 'BANANA', 'ARROZ', 'BISCOITO', 'LASANHA'];
 
 var animais = palavras.slice(0, 7);
 var objetos = palavras.slice(7, 14);
@@ -15,7 +15,7 @@ acertos = 0;
 letrasCertas = [];
 letrasErradas = [];
 letraTempQtd = 0;
-const regex = new RegExp("^[a-z \b]+$");
+const regex = new RegExp("^[A-Za-z \b]+$");
 
 var botaoJogar = document.querySelector('#inicia-jogo');
 botaoJogar.addEventListener('click', iniciaJogo);
@@ -55,9 +55,10 @@ function validaLetra(event) {
 
   if (!regex.test(event.key)) {
 
-        alert('Apenas letras');
+        alert('Caractere inválido!');
     }else {
-      var letra = event.key;
+      var l = event.key;
+      var letra = l.toUpperCase();
 
         verificaLetra(letra);
     }

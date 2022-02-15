@@ -189,7 +189,7 @@ function escrevePerdeu() {
 
 function escreverGanhou() {
   pincel.beginPath();
-  pincel.font = '48px Pangolin';
+  pincel.font = '48px Roboto';
   pincel.fillStyle = '#3fd447';
   pincel.fillText('Você Venceu. Parabéns!', 200, 580);
   pincel.closePath();
