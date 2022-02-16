@@ -19,6 +19,7 @@
 - HTML
 - CSS
 - Javascritpt
+- Bootstrap
 
 ### Resultado final
 
