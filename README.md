@@ -1,4 +1,4 @@
-# Alura Challenge - Oracle ONE- Semana 3 e 4
+# Alura Challenge - Oracle ONE
 
 ## Jogo da forca
 
